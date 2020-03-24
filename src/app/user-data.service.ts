@@ -1,13 +1,4 @@
 import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class UserDataService {
-
-  constructor() { }
-}
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import {  throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
