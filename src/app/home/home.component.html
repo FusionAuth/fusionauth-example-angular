@@ -1,3 +1,6 @@
-<p>home works!</p>
-
-User: {{user.email}}
+<div *ngIf="user['email'] != null">
+  Hello {{user['email']}}
+</div>
+<div *ngIf="user['email'] == null">
+  <a href='http://localhost:3000/login'>Log me in</a>
+</div>

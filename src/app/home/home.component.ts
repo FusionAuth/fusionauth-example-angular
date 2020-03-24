@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
 })
 export class HomeComponent implements OnInit {
 
-  user = {"email":"test@example.com"}
+  user = {}
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
