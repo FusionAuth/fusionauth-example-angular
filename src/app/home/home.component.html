@@ -1,5 +1,6 @@
 <div *ngIf="user['email'] != null">
   Hello {{user['email']}}
+<br/><a href='http://localhost:3000/logout'>Log me out</a>
 </div>
 <div *ngIf="user['email'] == null">
   <a href='http://localhost:3000/login'>Log me in</a>
