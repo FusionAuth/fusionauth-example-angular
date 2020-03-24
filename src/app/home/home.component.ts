@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.userService.get().subscribe((data: any)=>{  
       console.log(data);  
+ 
+      // sane default for user data
+      data.registration.data = data.registration.data || {};
       this.user = data;  
     });
   }
