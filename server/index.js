@@ -11,6 +11,21 @@ app.use(cors({
   credentials: true
 }));
 
+// configure sessions
+app.use(session(
+  {
+    secret: '1234567890',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: 'auto',
+      httpOnly: true,
+      maxAge: 3600000
+    }
+  })
+);
+
+// routes
 app.use('/user', require('./routes/user'));
 
 app.listen(config.serverPort, () => console.log(`FusionAuth example app listening on port ${config.serverPort}.`));
