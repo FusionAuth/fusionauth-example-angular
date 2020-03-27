@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
             res.send(
               {
                 ...userInfoResponse,
-                ...body // body is results from the registration endpoint:w
+                ...body // body is results from the registration endpoint
                 
               }
             );
