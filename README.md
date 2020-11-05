@@ -3,6 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
 This is an Angular+Express application which leverages FusionAuth for authentication and user data.
+This application will use an OAuth Authorization Code workflow and the PKCE extension to log users in.
+PKCE stands for Proof Key for Code Exchange, and is often pronounced “pixie”.
+
+You can also read the blog post here: https://fusionauth.io/blog/2020/03/31/how-to-securely-implement-oauth-angular
 
 ## Development server
 
@@ -25,5 +29,3 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-You can also read the blog post here: https://fusionauth.io/blog/2020/03/31/how-to-securely-implement-oauth-angular
