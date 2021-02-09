@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
       console.log(data);  
  
       // sane default for user data
+      data.registration = data.registration || {};
       data.registration.data = data.registration.data || {};
       this.user = data;  
     });

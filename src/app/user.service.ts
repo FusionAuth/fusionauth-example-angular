@@ -8,7 +8,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class UserService {
 
-  private SERVER_URL = "http://localhost:3000/user";
+  private SERVER_URL = "https://angproxy.fusionauth.io/user";
 
   constructor(private httpClient: HttpClient) { }
 

@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     request(
       {
         method: 'GET',
-        uri: `http://localhost:${config.fusionAuthPort}/oauth2/userinfo`,
+        uri: `https://local.fusionauth.io/oauth2/userinfo`,
         headers: {
           'Authorization': 'Bearer ' + req.session.token
         }
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
           // GET request to /registration endpoint
           {
             method: 'GET',
-            uri: `http://localhost:${config.fusionAuthPort}/api/user/registration/${userInfoResponse.sub}/${config.applicationID}`,
+            uri: `https://local.fusionauth.io/api/user/registration/${userInfoResponse.sub}/${config.applicationID}`,
             json: true,
             headers: {
               'Authorization': config.apiKey

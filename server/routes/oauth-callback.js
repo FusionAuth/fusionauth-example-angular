@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     // POST request to /token endpoint
     {
       method: 'POST',
-      uri: `http://localhost:${config.fusionAuthPort}/oauth2/token`,
+      uri: `https://local.fusionauth.io/oauth2/token`,
       form: {
         'client_id': config.clientID,
         'client_secret': config.clientSecret,
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
       req.session.token = JSON.parse(body).access_token;
 
       // redirect to the Angular app
-      res.redirect(`http://localhost:${config.clientPort}`);
+      res.redirect(`https://angular.fusionauth.io`);
     }
   );
 });

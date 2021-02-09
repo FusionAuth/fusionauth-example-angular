@@ -1,8 +1,8 @@
 module.exports = {
 
   clientID: 'ca4c52d5-be47-442e-8487-3b4fde8af4bb',
-  clientSecret: 'ia_YAKiWwdBTXRSbh5x3TiEPykj8o3WV78uFHFhWA_8',
-  redirectURI: 'http://localhost:3000/oauth-callback',
+  clientSecret: '82mKgJ-q6UBDzcvmG-NNYJfijs_C-hZ5jAxF5osMG9M',
+  redirectURI: 'https://angproxy.fusionauth.io/oauth-callback',
   applicationID: 'ca4c52d5-be47-442e-8487-3b4fde8af4bb',
 
   // our FusionAuth api key

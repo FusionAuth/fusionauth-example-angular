@@ -8,7 +8,7 @@ router.post('/', (req, res) => {
   request(
     {
       method: 'GET',
-      uri: `http://localhost:${config.fusionAuthPort}/oauth2/userinfo`,
+      uri: `https://local.fusionauth.io/oauth2/userinfo`,
       headers: {
         'Authorization': 'Bearer ' + req.session.token
       }
@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
         // PATCH request to /registration endpoint
         {
           method: 'PATCH',
-          uri: `http://localhost:${config.fusionAuthPort}/api/user/registration/${userInfoResponse.sub}/${config.applicationID}`,
+          uri: `https://local.fusionauth.io/api/user/registration/${userInfoResponse.sub}/${config.applicationID}`,
           headers: {
             'Authorization': config.apiKey
           },
