@@ -8,9 +8,19 @@ PKCE stands for Proof Key for Code Exchange, and is often pronounced “pixie”
 
 You can also read the blog post here: https://fusionauth.io/blog/2020/03/31/how-to-securely-implement-oauth-angular
 
+This expects to be run on three different hosts:
+
+* angproxy.fusionauth.io -> node server
+* angular.fusionauth.io -> serves up angular app
+* angular2.fusionauth.io -> serves up angular app
+
+Plus FusionAuth at local.fusionauth.io.
+
+In the node server, we differentiate between two different applications based on their referrer (angular or angular2). This could be extended to support different tenants, more than two applications or pulling the mapping between referrer and client id from an API or other datastore.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve --host 0.0.0.0 --disable-host-check` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Express server
 
