@@ -1,6 +1,8 @@
 # Example: Using Angular+Express with FusionAuth
 This project contains an example project that illustrates using FusionAuth with Angular and Node/Express. This application will use an OAuth Authorization Code workflow and the PKCE extension to log users in. PKCE stands for Proof Key for Code Exchange, and is often pronounced “pixie”.
 
+This project was upgraded to use Angular 14; versions beyond that may require some manual updates.
+
 ## Prerequisites
 You will need the following things properly installed on your computer.
 
@@ -30,7 +32,7 @@ For now, get FusionAuth in Docker up and running (via `docker-compose up`) if it
 To run, do the following:
 
 * In one shell, run `docker-compose up`
-* In another shell, `cd server` and `npm serve`
+* In another shell, `cd server` and `npm run serve`
 * In a third shell, `cd secure-angular` and `ng serve`
 
 [Open a browser](http://localhost:4200/) (http://localhost:4200). The app will automatically reload if you change any of the source files.
