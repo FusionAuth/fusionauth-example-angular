@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const config = require('../config');
+const config = require('../../config');
 
 router.get('/', (req, res) => {
   // delete the session
