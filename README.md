@@ -8,6 +8,7 @@ You will need the following things properly installed on your computer.
 
 * [Git](http://git-scm.com/): Presumably you already have this on your machine if you are looking at this project locally; if not, use your platform's package manager to install git, and `git clone` this repo.
 * [NodeJS](https://nodejs.org): This will install the NodeJS runtime, which includes the package management tool `npm` needed for pulling down the various dependencies.
+* [Angular 14](http://angular.io): Specifically, you will need the Angular `ng` CLI tool available to you; this is most easily installed to be a global package, e.g. `npm install -g @angular/cli`, so that is available to this and any other Angular project you might work on.
 * OPTIONAL: [Docker](https://www.docker.com): If you wish to run FusionAuth from within a Docker container.
 
 ## Installation

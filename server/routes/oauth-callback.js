@@ -21,6 +21,9 @@ router.get('/', (req, res) => {
 
     // callback
     (error, response, body) => {
+      console.log(`response: ${JSON.stringify(response)}`);
+      console.log(`error = ${JSON.stringify(error)}`);
+
       // save token to session
       req.session.token = JSON.parse(body).access_token;
 
