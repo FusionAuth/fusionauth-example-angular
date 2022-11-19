@@ -54,7 +54,8 @@
                 "name": "exampleapp",
                 "oauthConfiguration" : {
                     "authorizedRedirectURLs": ["http://localhost:3000/oauth-callback"],
-                    "logoutURL": "http://localhost:3000",
+                    "clientSecret": "this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works_dont_use_this_in_prod",
+                    "logoutURL": "http://localhost:4200",
                     "enabledGrants": ["authorization_code"]
                 },
                 "jwtConfiguration": {
