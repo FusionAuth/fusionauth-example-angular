@@ -9,14 +9,14 @@ You will need the following things properly installed on your computer.
 * [Git](http://git-scm.com/): Presumably you already have this on your machine if you are looking at this project locally; if not, use your platform's package manager to install git, and `git clone` this repo.
 * [NodeJS](https://nodejs.org): This will install the NodeJS runtime, which includes the package management tool `npm` needed for pulling down the various dependencies.
 * [Angular 14](http://angular.io): Specifically, you will need the Angular `ng` CLI tool available to you; this is most easily installed to be a global package, e.g. `npm install -g @angular/cli`, so that is available to this and any other Angular project you might work on.
-* OPTIONAL: [Docker](https://www.docker.com): If you wish to run FusionAuth from within a Docker container.
+* [Docker](https://www.docker.com): For standing up FusionAuth from within a Docker container. (You can [install it other ways](https://fusionauth.io/docs/v1/tech/installation-guide/), but for this example you'll need Docker.)
 
 ## Installation
 To install, do the following in a shell/Terminal window:
 
 * `git clone https://github.com/fusionauth/fusionauth-example-angular` or `gh repo clone fusionauth/fusionauth-example-angular`
 * `cd fusionauth-example-angular`: This is the root of the example.
-* `cd secure-angular; npm install`: This will bring all the node modules onto the machine.
+* `cd client; npm install`: This will bring all the node modules onto the machine.
 * `cd ../server; npm install`: Likewise.
 
 ## FusionAuth Configuration
@@ -32,14 +32,12 @@ For now, get FusionAuth in Docker up and running (via `docker-compose up`) if it
 To run, do the following:
 
 * In one shell, run `docker-compose up`
-* In another shell, `cd server` and `npm run serve`
-* In a third shell, `cd secure-angular` and `ng serve`
+* In another shell, `cd server` and `npm run start`
+* In a third shell, `cd client` and `npm run start`
 
 [Open a browser to the Angular app](http://localhost:4200/). The app will automatically reload if you change any of the source files.
 
 You can also read the blog post here: https://fusionauth.io/blog/2020/03/31/how-to-securely-implement-oauth-angular
-
-> **NOTE**: Again, as noted above, if you ever want to reset the FusionAuth system, delete the volumes created by docker-compose by executing `docker-compose down -v`.
 
 ## Architecture
 The app has three parts, each running on a different `localhost` port:
@@ -52,9 +50,7 @@ So, the parts connect like this:
 
 `Angular (4200) <---> Express (3000) <---> FusionAuth (9011)`
 
-The Angular app never talks directly to FusionAuth. This is important, because the Angular app can be easily picked apart by anyone online (it's Javascript, which means the source is directly visible to anyone with a browser), which means you can't keep confidential information there. While some calls directly to FusionAuth are safe, it's usually important to keep things separated like this.
-
-### **TODO**: Verify all of what's below!
+The Angular app never talks directly to FusionAuth. This is important, because the Angular app can be easily picked apart by anyone online (it's Javascript, which means the source is directly visible to anyone with a browser), which means you can't keep confidential information there. While some calls directly to FusionAuth are safe, it's usually best to keep things separated like this.
 
 ### Logging In/Out
 
@@ -70,38 +66,12 @@ When the user clicks on `sign out`, the Angular app sends a request to the Expre
 
 When the Angular app loads, it sends a request to the Express server's `/user` route. If there's an Access Token in session storage, the Express server uses FusionAuth's `/introspect` and `/registration` endpoints to get data for the current user; these give us the `token` and `registration` JSON objects seen in the example app.
 
-If there is no Access Token (or if it's expired), `/user` will instead return an empty object. The React components use the existence of `token` (or lack thereof) to determine whether to render the page in its logged-in or logged-out state.
+If there is no Access Token (or if it's expired), `/user` will instead return an empty object. The Angular components use the existence of `token` (or lack thereof) to determine whether to render the page in its logged-in or logged-out state.
 
 ### Editing User Data
 
 All of your FusionAuth users have a `registration.data` object for storing arbitrary data related to the user. The example app allows logged-in users to modify `registration.data.userData` by changing its value in the `<textarea>`, but all `registration` information is able to be set in this way.
 
-When the `<textarea>` is changed, the React client makes a request to the Express server's `/set-user-data` route, which makes a request to FusionAuth's `/registration` endpoint.
+When the `<textarea>` is changed, the Angular client makes a request to the Express server's `/set-user-data` route, which makes a request to FusionAuth's `/registration` endpoint.
 
-### Future steps
-This should be sufficient to get started; for more ideas on where to go next with your Angular/FusionAuth journey... ***TODO***
-
-## FusionAuth configuration (by hand)
-Again, remember that all of this is already automated for you as part of the [Kickstart file](kickstart/kickstart.json) that will be executed the first time FusionAuth comes up, and if you ever need to regenerate it, you can delete the Docker volumes (`docker-compose down -v`) to remove them entirely (which will then cause FusionAuth to initialize itself from the Kickstart file on the next startup).
-
-If you wish to run FusionAuth directly from your machine, ...
-
-If you prefer to run FusionAuth from a remote server (such as the cloud), ...
-
-Assuming FusionAuth is running locally on port 9011, go [here](http://localhost:9011/admin) to log in as an admin and configure an asymmetric key, an application, and two users. If you have never run FusionAuth locally before, you will need to create an admin user (next).
-
-### Create the Admin user
-This will only be necessary
-
-### Create the asymmetric key
-
-### Create the application
-
-### Configure the application to use the asymmetric key you created
-
-### Register the admin user to the application
-
-### Create a non-admin user
-
-### Register the non-admin user to the application
 
