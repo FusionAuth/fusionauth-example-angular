@@ -1,3 +1,5 @@
+**This repo is out of date and is archived. Check out [an updated tutorial on using FusionAuth with Angular](https://fusionauth.io/docs/quickstarts/quickstart-javascript-angular-web) or [the updated GitHub repository](https://github.com/fusionauth/fusionauth-quickstart-javascript-angular-web).**
+
 # Example: Using Angular+Express with FusionAuth
 This project contains an example project that illustrates using FusionAuth with Angular and Node/Express. This application will use an OAuth Authorization Code workflow and the PKCE extension to log users in. (PKCE stands for Proof Key for Code Exchange, and is often pronounced “pixie”.) The Angular front-end looks to access a NodeJS back-end, which requires authentication through FusionAuth; the front-end code is in the `secure-angular` directory, and the NodeJS back-end code is in the `server` directory.
 
